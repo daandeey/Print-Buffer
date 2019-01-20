@@ -1047,120 +1047,119 @@ void print9(int x_in, int y_in, int r, int g, int b, int t){
 
 void printNama(char* name, int x_in, int y_in, int r, int g, int b, int t) {
     for (int i = 0; i < strlen(name); i++) {
-        switch (kata[i]) {
-            case name[i] == 'a' :
+        switch (name[i]) {
+            case 'a' :
                 printA(x_in, y_in, r, g, b, t);
                 break;
-            case name[i] == 'b' :
+            case 'b' :
                 printB(x_in, y_in, r, g, b, t);
                 break;
-            case name[i] == 'c' :
+            case 'c' :
                 printC(x_in, y_in, r, g, b, t);
                 break;       
-            case name[i] == 'd' :
+            case 'd' :
                 printD(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'e' :
+            case 'e' :
                 printE(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'f' :
+            case 'f' :
                 printF(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'g' :
+            case 'g' :
                 printG(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'h' :
-                printh(x_in, y_in, r, g, b, t);
+            case 'h' :
+                printH(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'i' :
+            case 'i' :
                 printI(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'j' :
+            case 'j' :
                 printJ(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'k' :
+            case 'k' :
                 printK(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'l' :
+            case 'l' :
                 printL(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'm' :
+            case 'm' :
                 printM(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'n' :
+            case 'n' :
                 printN(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case 'o' :
+                printO(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case 'p' :
+                printP(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case 'q' :
+                printQ(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case 'r' :
+                printR(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case 's' :
+                printS(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case 't' :
+                printT(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case 'u' :
+                printU(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case 'v' :
+                printV(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case 'w' :
+                printW(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case 'x' :
+                printX(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case 'y' :
+                printY(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case 'z' :
+                printZ(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case '0' :
+                print0(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case '1' :
+                print1(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case '2' :
+                print2(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case '3' :
+                print3(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case '4' :
+                print4(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case '5' :
+                print5(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case '6' :
+                print6(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case '7' :
+                print7(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case '8' :
+                print8(x_in, y_in, r, g, b, t);
                 break;        
-            case name[i] == 'a' :
-                printA(x_in, y_in, r, g, b, t);
+            case '9' :
+                print9(x_in, y_in, r, g, b, t);
                 break;        
             
             
         }
-
-        if (name[i] == 'A' || name[i] == 'a') 
+        x_in += SIZE/2 + 10;
     }
 }
 
@@ -1202,31 +1201,7 @@ int main(){
     }
     printf("The framebuffer device was mapped to memory successfully.\n");
 
-    // printP(40,0,150,50,50,0);
-    // printL(250,0,150,50,50,0);
-    // printP(350, 0, 100,100,0,0);
-    // printE(500,0,100,0,100,0);
-    // printT(600,0,150,150,150,0);
-    print2(700,0,150,150,150,0);
-    print8(800,0,150,150,150,0);
-    printH(500,250,70,150,100,0);
-    printB(540,250,70,150,100,0);
-    printQ(580,250,70,150,100,0);
-    printZ(630,250,70,150,100,0);
-    printW(670,250,70,150,100,0);
-    print5(730,250,70,150,100,0);
-    printD(500, 350, 70, 150, 100, 0);
-    printJ(540, 350, 70, 150, 100, 0);
-    printO(580, 350, 70, 150, 100, 0);
-    printU(620, 350, 70, 150, 100, 0);
-    print1(660, 350, 70, 150, 100, 0);
-    print7(700, 350, 70, 150, 100, 0);
-    printA(500, 450, 70, 150, 100, 0);
-    printG(540, 450, 70, 150, 100, 0);
-    printR(580, 450, 70, 150, 100, 0);
-    printX(620, 450, 70, 150, 100, 0);
-    printY(660, 450, 70, 150, 100, 0);
-    print4(700, 450, 70, 150, 100, 0);
+    printNama("farhan", 40,40,150,50,50,0);
 
 munmap(fbp, screensize);
     close(fbfd);
