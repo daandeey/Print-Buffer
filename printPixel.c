@@ -1201,6 +1201,12 @@ int main(){
     }
     printf("The framebuffer device was mapped to memory successfully.\n");
 
+    for(int a=0; a<700;a++){
+        for(int b=0; b<1300;b++){
+            fillPixel(b, a, 0, 0, 0, 0);
+        }
+    }
+
     printNama("farhan", 40,40,150,50,50,0);
 
 munmap(fbp, screensize);
