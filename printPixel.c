@@ -849,6 +849,35 @@ void printZ(int x_in, int y_in, int r, int g, int b, int t){
 
 //BELUM
 void print0(int x_in, int y_in, int r, int g, int b, int t){
+    int x, y;
+    //Garis kiri ke bawah
+    for(x = x_in; x < x_in + THICK; x++){
+        for(y = y_in; y < y_in + SIZE; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis atas ke kanan
+    for(x = x_in; x < x_in + SIZE/2; x++){
+        for(y = y_in; y < y_in + THICK; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis kanan ke bawah
+    for(x = x_in; x < x_in + SIZE/2; x++){
+        for(y = y_in; y < y_in + SIZE; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis bawah ke kanan
+    for(x = x_in; x < x_in + SIZE/2; x++){
+        for(y = y_in + SIZE - THICK; y < y_in + SIZE; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
 }
 
 void print1(int x_in, int y_in, int r, int g, int b, int t){
@@ -1021,6 +1050,41 @@ void print5(int x_in, int y_in, int r, int g, int b, int t){
 
 //BELUM
 void print6(int x_in, int y_in, int r, int g, int b, int t){
+    int x, y;
+    //Garis kiri ke bawah
+    for(x = x_in; x < x_in + THICK; x++){
+        for(y = y_in; y < y_in + SIZE; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis atas ke kanan
+    for(x = x_in; x < x_in + SIZE/2; x++){
+        for(y = y_in; y < y_in + THICK; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis tengah ke kanan
+    for(x = x_in; x < x_in + SIZE/2; x++){
+        for(y = y_in + SIZE/2 - THICK/2; y < y_in + SIZE/2 + THICK/2; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis kanan ke bawah
+    for(x = x_in + SIZE/2 - THICK; x < x_in + SIZE/2; x++){
+        for(y = y_in + SIZE/2; y < y_in + SIZE; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis bawah ke kanan
+    for(x = x_in; x < x_in + SIZE/2; x++){
+        for(y = y_in + SIZE - THICK; y < y_in + SIZE; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
 }
 
 void print7(int x_in, int y_in, int r, int g, int b, int t){
@@ -1334,7 +1398,10 @@ int main(){
     printf("The framebuffer device was mapped to memory successfully.\n");
 
     clearBackground();
-    printNama("vandy", 40,40,150,50,50,0);
+    printNama("dandy", 40,40,150,50,50,0);
+    printNama("hafizh", 40,110,150,250,50,10);
+    printNama("william", 40,180,150,150,50,100);
+    printNama("ivan", 40,250,150,100,40,20);
 
     munmap(fbp, screensize);
     close(fbfd);
