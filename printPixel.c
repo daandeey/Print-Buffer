@@ -651,6 +651,48 @@ void printU(int x_in, int y_in, int r, int g, int b, int t){
 
 //BELUM
 void printV(int x_in, int y_in, int r, int g, int b, int t){
+    int x, y;
+    //Garis kiri1 ke bawah
+    for(x = x_in; x < x_in + THICK; x++){
+        for(y = y_in; y < y_in + SIZE*2/3; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis kiri2 ke bawah
+    for(x = x_in + THICK; x < x_in + 2*THICK; x++){
+        for(y = y_in + SIZE*2/3; y < y_in + SIZE*5/6; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis kiri3 ke bawah
+    for(x = x_in + 2*THICK; x < x_in + 3*THICK; x++){
+        for(y = y_in + SIZE*5/6; y < y_in + SIZE; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis kanan1 ke bawah
+    for(x = x_in + 3*THICK; x < x_in + 4*THICK; x++){
+        for(y = y_in + SIZE*5/6; y < y_in + SIZE; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis kanan2 ke bawah
+    for(x = x_in + 4*THICK; x < x_in + 5*THICK; x++){
+        for(y = y_in + SIZE*2/3; y < y_in + SIZE*5/6; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis kanan3 ke bawah
+    for(x = x_in + 5*THICK; x < x_in + 6*THICK; x++){
+        for(y = y_in; y < y_in + SIZE*2/3; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
 }
 
 void printW(int x_in, int y_in, int r, int g, int b, int t){
@@ -1237,6 +1279,8 @@ void printNama(char* name, int x_in, int y_in, int r, int g, int b, int t) {
             x_in += 20;
         } else if (name[i] == 'w' || name[i] == 'W') {
             x_in += SIZE/2 + 30;
+        } else if (name[i] == 'v' || name[i] == 'V') {
+            x_in += SIZE/2 + 15;
         } else {
             x_in += SIZE/2 + 10;
         }
@@ -1290,9 +1334,9 @@ int main(){
     printf("The framebuffer device was mapped to memory successfully.\n");
 
     clearBackground();
-    printNama("karhan", 40,40,150,50,50,0);
+    printNama("vandy", 40,40,150,50,50,0);
 
-munmap(fbp, screensize);
+    munmap(fbp, screensize);
     close(fbfd);
     return 0;
 }
