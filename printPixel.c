@@ -100,9 +100,27 @@ void printB(int x_in, int y_in, int r, int g, int b, int t){
     }
 }
 
-// BELUM
 void printC(int x_in, int y_in, int r, int g, int b, int t){
-
+    int x,y;
+    initFbp();
+    //Garis ke bawah
+    for(y=y_in;y<y_in+SIZE;y++){
+        for(x=x_in;x<x_in+THICK;x++){
+            fillPixel(x,y,r,g,b,t);
+        }
+    }
+    //Garis ke kanan, paling atas
+    for(y=y_in;y<y_in+THICK;y++){
+        for(x=x_in;x<x_in+SIZE/2;x++){
+            fillPixel(x,y,r,g,b,t);
+        }
+    }
+    //Garis ke kanan, bagian bawah
+    for(y=y_in+SIZE-THICK;y<y_in+SIZE;y++){
+        for(x=x_in;x<x_in+SIZE/2;x++){
+            fillPixel(x,y,r,g,b,t);
+        }
+    }
 }
 
 void printD(int x_in, int y_in, int r, int g, int b, int t){
@@ -244,9 +262,15 @@ void printH(int x_in, int y_in, int r, int g, int b, int t){
     }
 }
 
-//BELUM
 void printI(int x_in, int y_in, int r, int g, int b, int t){
-
+    int x,y;
+    initFbp();
+    //Garis ke bawah
+    for(y=y_in;y<y_in+SIZE;y++){
+        for(x=x_in;x<x_in+THICK;x++){
+            fillPixel(x,y,r,g,b,t);
+        }
+    }
 }
 
 void printJ(int x_in, int y_in, int r, int g, int b, int t){
@@ -1159,7 +1183,12 @@ void printNama(char* name, int x_in, int y_in, int r, int g, int b, int t) {
             
             
         }
-        x_in += SIZE/2 + 10;
+
+        if (name[i] == 'i' || name[i] == 'I') {
+            x_in += 20;
+        } else {
+            x_in += SIZE/2 + 10;
+        }
     }
 }
 
@@ -1207,7 +1236,7 @@ int main(){
         }
     }
 
-    printNama("farhan", 40,40,150,50,50,0);
+    printNama("carhain", 40,40,150,50,50,0);
 
 munmap(fbp, screensize);
     close(fbfd);
