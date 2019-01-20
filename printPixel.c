@@ -302,6 +302,55 @@ void printJ(int x_in, int y_in, int r, int g, int b, int t){
 }
 
 void printK(int x_in, int y_in, int r, int g, int b, int t){
+    int x, y;
+    //Garis kiri ke bawah
+    for(x = x_in; x < x_in + THICK; x++){
+        for(y = y_in; y < y_in + SIZE; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis tengah1 ke atas
+    for(x = x_in + SIZE/4 - THICK; x < x_in + SIZE/4; x++){
+        for(y = y_in + SIZE/3; y < y_in + SIZE/2; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis tengah2 ke atas
+    for(x = x_in + SIZE/3 - THICK; x < x_in + SIZE/3; x++){
+        for(y = y_in + SIZE/6; y < y_in + SIZE/3; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis tengah3 ke atas
+    for(x = x_in + SIZE*2/5 - THICK; x < x_in + SIZE*2/5; x++){
+        for(y = y_in; y < y_in + SIZE/6; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis tengah1 ke bawah
+    for(x = x_in + SIZE/4 - THICK; x < x_in + SIZE/4; x++){
+        for(y = y_in + SIZE/2; y < y_in + SIZE*2/3; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis tengah2 ke bawah
+    for(x = x_in + SIZE/3 - THICK; x < x_in + SIZE/3; x++){
+        for(y = y_in + SIZE*2/3; y < y_in + SIZE*5/6; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
+
+    //Garis tengah3 ke bawah
+    for(x = x_in + SIZE*2/5 - THICK; x < x_in + SIZE*2/5; x++){
+        for(y = y_in + SIZE*5/6; y < y_in + SIZE; y++){
+            fillPixel(x, y, r, g, b, t);
+        }
+    }
 }
 
 void printL(int x_in, int y_in, int r, int g, int b, int t){
@@ -1186,6 +1235,8 @@ void printNama(char* name, int x_in, int y_in, int r, int g, int b, int t) {
 
         if (name[i] == 'i' || name[i] == 'I') {
             x_in += 20;
+        } else if (name[i] == 'w' || name[i] == 'W') {
+            x_in += SIZE/2 + 30;
         } else {
             x_in += SIZE/2 + 10;
         }
@@ -1239,7 +1290,7 @@ int main(){
     printf("The framebuffer device was mapped to memory successfully.\n");
 
     clearBackground();
-    printNama("farhan", 40,40,150,50,50,0);
+    printNama("karhan", 40,40,150,50,50,0);
 
 munmap(fbp, screensize);
     close(fbfd);
