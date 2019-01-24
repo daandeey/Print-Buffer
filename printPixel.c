@@ -47,7 +47,7 @@ void fillPixel(int x, int y, int r, int g, int b, int t){
 }
 
 void printGaris(int x0, int y0, int x1, int y1, int r, int g, int b, int t) {
-    int dx, dy, p, x, y;
+    int dx, dy, p, x, y, i;
  
 	dx=x1-x0;
 	dy=y1-y0;
@@ -68,9 +68,25 @@ void printGaris(int x0, int y0, int x1, int y1, int r, int g, int b, int t) {
             fillPixel(x, y, r, g, b, t);
             x++;
         }
+        
     } else if (dy/dx < 0) { //Gradien Negatif
+    
+        dx=abs(x1-x);
+	    dy=abs(y1-y);
+        p = 2*dy - dx;
+
+        for (i = 1; i <= dx; i++) {
+            fillPixel(x, y ,r, g, b, t);
+            while (p > 0) {
+                y = y - 1;
+                p = p - 2*dx;
+            }
+            x = x + 1;
+            p = p + 2*dy;
+        }
 
     } else if (dy/dx > 0) { //Gradien Positif
+
         while(x<x1)
         {
             if(p>=0)
@@ -1449,11 +1465,16 @@ int main(){
     printNama("ivan", 40,250,150,100,40,20);
     printNama("yogi", 40,320,150,200,40,20);
     printNama("judhis", 40,390,150,120,40,20);
-    printGaris(40,40, 200, 200, 255, 255, 255, 0);
+
+    // Positif
+    printGaris(40, 40, 200, 200, 255, 255, 255, 0);
     printGaris(40, 40, 40, 200, 255, 255, 255, 0);
     printGaris(40, 200, 200, 200, 255, 255, 255, 0);
-    printGaris(40, 200, 200, 200, 255, 255, 255, 0);
-    printGaris(40, 200, 200, 40, 255, 255, 255, 0);
+
+    // Negatif
+    printGaris(40, 400, 200, 240, 255, 255, 255, 0);
+    printGaris(40, 240, 40, 400, 255, 255, 255, 0);
+    printGaris(40, 240, 200, 240, 255, 255, 255, 0);
 
     munmap(fbp, screensize);
     close(fbfd);
