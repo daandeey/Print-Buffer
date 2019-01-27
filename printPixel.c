@@ -1563,9 +1563,20 @@ int main(){
     //Matahari
     printMatahari(650, 175, 80, 15);
 	
-	//pagar
-	printSawahL(70, 450, 5, 50);
-	printSawahR(760, 450, 5, 50);
+	//sawah
+	printSawahL(120, 450, 5, 50);
+	printGaris(120, 700, 170, 450, 127, 247, 29, 0);
+	printGaris(170, 700, 220, 450, 127, 247, 29, 0);
+	printGaris(220, 700, 270, 450, 127, 247, 29, 0);
+	printGaris(270, 700, 320, 450, 127, 247, 29, 0);
+	printGaris(320, 700, 370, 450, 127, 247, 29, 0);
+	printSawahR(960, 450, 5, 50);
+	printGaris(1010, 700, 960, 450, 127, 247, 29, 0);
+	printGaris(1060, 700, 1010, 450, 127, 247, 29, 0);
+	printGaris(1110, 700, 1060, 450, 127, 247, 29, 0);
+	printGaris(1160, 700, 1110, 450, 127, 247, 29, 0);
+	printGaris(1210, 700, 1160, 450, 127, 247, 29, 0);
+
 	
     munmap(fbp, screensize);
     close(fbfd);
