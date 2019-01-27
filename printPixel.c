@@ -1462,6 +1462,36 @@ void printMatahari(int x, int y, int r, int d){
     }
 }
 
+void printSawahL(int x0, int y0, int n, int r){
+//(x0, y0) titik awal sawah
+//n menyatakan banyak garis, r menyatakan jarak antara 2 garis
+	int x1 = (n)*r+x0;
+	int y1 = (n)*r+y0;
+    for (int i=0;i<n;i++){
+        printGaris(x0, y0, x1, y0, 127, 247, 29, 0);
+        y0+=r;
+    }
+    for (int i=0;i<n;i++){
+        printGaris(x0+r, y0, x0, y1, 127, 247, 29, 0);
+        x0+=r;
+    } 
+ }
+
+void printSawahR(int x0, int y0, int n, int r){
+//(x0, y0) titik awal sawah
+//n menyatakan banyak garis, r menyatakan jarak antara 2 garis
+	int x1 = (n)*r+x0;
+	int y1 = (n)*r+y0;
+    for (int i=0;i<n;i++){
+        printGaris(x0, y0, x1, y0, 127, 247, 29, 0);
+        y0+=r;
+    }
+    for (int i=0;i<n;i++){
+        printGaris(x0, y0, x0+r, y1, 127, 247, 29, 0);
+        x0+=r;
+    } 
+ }
+
 int main(){
 
     int x = 0, y = 0;
@@ -1532,7 +1562,11 @@ int main(){
 
     //Matahari
     printMatahari(650, 175, 80, 15);
-
+	
+	//pagar
+	printSawahL(70, 450, 5, 50);
+	printSawahR(760, 450, 5, 50);
+	
     munmap(fbp, screensize);
     close(fbfd);
     return 0;
