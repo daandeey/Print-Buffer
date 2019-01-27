@@ -1518,6 +1518,10 @@ int main(){
     printGaris(640, 360, 920, 80, 255, 255, 255, 0);
     printGaris(920, 80, 1240, 400, 255, 255, 255, 0);
 
+    //Jalan
+    printGaris(680,400,750,700,150,155,155,0);
+    printGaris(720,400,1000,700,150,155,155,0);
+
     munmap(fbp, screensize);
     close(fbfd);
     return 0;
