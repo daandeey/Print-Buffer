@@ -1423,34 +1423,42 @@ void clearBackground() {
     }
 }
 
+void printLingkaran(int x, int y, int r)
+{
+    int i, x1, y1;
+    for (i = 0; i <= 720; i++)
+    {
+        x1 = (int) x + nearbyint(r * cos(i * PI / 360));
+        y1 = (int) y + nearbyint(r * sin(i * PI / 360));
+
+        fillPixel(x1, y1, 255, 255, 255, 0);
+    }
+}
+
 void printMatahari(int x, int y, int r, int d){
     //lingkaran
     int i;
     int x1, x2, y1, y2;
 
-    i = 0;
-    x1 = x + nearbyint(r * cos(i * PI / 180));
-    y1 = y + nearbyint(r * sin(i * PI / 180));
-
-    for (i = 5; i<=360; i += 5)
-    {
-        x2 = x + nearbyint(r * cos(i * PI / 180));
-        y2 = y + nearbyint(r * sin(i * PI / 180));
-
-        printGaris(x1, x2, y1, y2, 255, 255, 255, 0);
-
-        x1 = x2;
-        y1 = y2;
-    }
+    printLingkaran(x, y, r);
 
     //garis kecil
+    
     for (i = 0; i<=360; i += 15)
     {
-        x1 = x + nearbyint(r * cos(i * PI / 180));
-        x2 = x + nearbyint((r + d) * cos(i * PI / 180));
-        y1 = y + nearbyint(r * sin(i * PI / 180));
-        y2 = y + nearbyint((r + d) * sin(i * PI / 180));
-        printGaris(x1, x2, y1, y2, 255, 255, 255, 0);
+        x1 = (int) x + nearbyint(r * cos(i * PI / 180));
+        x2 = (int) x + nearbyint((r + d) * cos(i * PI / 180));
+        y1 = (int) y + nearbyint(r * sin(i * PI / 180));
+        y2 = (int) y + nearbyint((r + d) * sin(i * PI / 180));
+
+        if (x1 < x2)
+        {
+            printGaris(x1, y1, x2, y2, 255, 255, 255, 0);
+        }
+        else
+        {
+            printGaris(x2, y2, x1, y1, 255, 255, 255, 0);
+        }
     }
 }
 
@@ -1521,6 +1529,9 @@ int main(){
     //Jalan
     printGaris(680,400,750,700,150,155,155,0);
     printGaris(720,400,1000,700,150,155,155,0);
+
+    //Matahari
+    printMatahari(650, 175, 80, 15);
 
     munmap(fbp, screensize);
     close(fbfd);
