@@ -14,6 +14,9 @@ http://cep.xor.aps.anl.gov/software/qt4-x11-4.2.2/qtopiacore-testingframebuffer.
 #include <linux/fb.h>
 #include <sys/mman.h>
 #include <sys/ioctl.h>
+#include <math.h>
+#define PI 3.14159265
+
 
 #define for_each_item(item, list) \
     for(T * item = list->head; item != NULL; item = item->next)
@@ -1417,6 +1420,37 @@ void clearBackground() {
         for(int b=0; b<1300;b++){
             fillPixel(b, a, 0, 0, 0, 0);
         }
+    }
+}
+
+void printMatahari(int x, int y, int r, int d){
+    //lingkaran
+    int i;
+    int x1, x2, y1, y2;
+
+    i = 0;
+    x1 = x + nearbyint(r * cos(i * PI / 180));
+    y1 = y + nearbyint(r * sin(i * PI / 180));
+
+    for (i = 5; i<=360; i += 5)
+    {
+        x2 = x + nearbyint(r * cos(i * PI / 180));
+        y2 = y + nearbyint(r * sin(i * PI / 180));
+
+        printGaris(x1, x2, y1, y2, 255, 255, 255, 0);
+
+        x1 = x2;
+        y1 = y2;
+    }
+
+    //garis kecil
+    for (i = 0; i<=360; i += 15)
+    {
+        x1 = x + nearbyint(r * cos(i * PI / 180));
+        x2 = x + nearbyint((r + d) * cos(i * PI / 180));
+        y1 = y + nearbyint(r * sin(i * PI / 180));
+        y2 = y + nearbyint((r + d) * sin(i * PI / 180));
+        printGaris(x1, x2, y1, y2, 255, 255, 255, 0);
     }
 }
 
