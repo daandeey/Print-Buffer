@@ -1459,6 +1459,7 @@ int main(){
     printf("The framebuffer device was mapped to memory successfully.\n");
 
     clearBackground();
+    /*
     printNama("dandy", 40,40,150,50,50,0);
     printNama("hafizh", 40,110,150,250,50,10);
     printNama("william", 40,180,150,150,50,100);
@@ -1475,6 +1476,13 @@ int main(){
     printGaris(40, 400, 200, 240, 255, 255, 255, 0);
     printGaris(40, 240, 40, 400, 255, 255, 255, 0);
     printGaris(40, 240, 200, 240, 255, 255, 255, 0);
+    */
+
+    // Gunung
+    printGaris(40, 400, 360, 80, 255, 255, 255, 0);
+    printGaris(360, 80, 680, 400, 255, 255, 255, 0);
+    printGaris(640, 360, 920, 80, 255, 255, 255, 0);
+    printGaris(920, 80, 1240, 400, 255, 255, 255, 0);
 
     munmap(fbp, screensize);
     close(fbfd);
