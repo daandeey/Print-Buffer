@@ -51,6 +51,18 @@ void fillPixel(int x, int y, int r, int g, int b, int t){
 
 void printGaris(int x0, int y0, int x1, int y1, int r, int g, int b, int t) {
     int dx, dy, p, x, y, i;
+    int tempX, tempY;
+
+    if (x0>x1)
+    {
+        tempX = x0;
+        x0 = x1;
+        x1 = tempX;
+
+        tempY = y0;
+        y0 = y1;
+        y1 = tempY;
+    }
  
 	dx=x1-x0;
 	dy=y1-y0;
@@ -1431,7 +1443,7 @@ void printLingkaran(int x, int y, int r)
         x1 = (int) x + nearbyint(r * cos(i * PI / 360));
         y1 = (int) y + nearbyint(r * sin(i * PI / 360));
 
-        fillPixel(x1, y1, 255, 255, 255, 0);
+        fillPixel(x1, y1, 255, 255, 0, 0);
     }
 }
 
@@ -1441,6 +1453,24 @@ void printMatahari(int x, int y, int r, int d){
     int x1, x2, y1, y2;
 
     printLingkaran(x, y, r);
+
+    /*
+    i = 0;
+
+    x1 = (int) x + nearbyint(r * cos(i * PI / 180));
+    y1 = (int) y + nearbyint(r * sin(i * PI / 180));
+    for (i = 60; i<=360; i+=60)
+    {
+        x2 = (int) x + nearbyint(r * cos(i * PI / 180));
+        y2 = (int) y + nearbyint(r * sin(i * PI / 180));
+
+        printGaris(x1, y1, x2, y2, 255, 255, 255 ,0);
+
+        x1 = x2;
+        y1 = y2;
+    } */
+
+
 
     //garis kecil
     
@@ -1453,11 +1483,11 @@ void printMatahari(int x, int y, int r, int d){
 
         if (x1 < x2)
         {
-            printGaris(x1, y1, x2, y2, 255, 255, 255, 0);
+            printGaris(x1, y1, x2, y2, 255, 255, 0, 0);
         }
         else
         {
-            printGaris(x2, y2, x1, y1, 255, 255, 255, 0);
+            printGaris(x2, y2, x1, y1, 255, 255, 0, 0);
         }
     }
 }
@@ -1538,12 +1568,10 @@ int main(){
     printNama("ivan", 40,250,150,100,40,20);
     printNama("yogi", 40,320,150,200,40,20);
     printNama("judhis", 40,390,150,120,40,20);
-
     // Positif
     printGaris(40, 40, 200, 200, 255, 255, 255, 0);
     printGaris(40, 40, 40, 200, 255, 255, 255, 0);
     printGaris(40, 200, 200, 200, 255, 255, 255, 0);
-
     // Negatif
     printGaris(40, 400, 200, 240, 255, 255, 255, 0);
     printGaris(40, 240, 40, 400, 255, 255, 255, 0);
@@ -1551,14 +1579,14 @@ int main(){
     */
 
     // Gunung
-    printGaris(40, 400, 360, 80, 255, 255, 255, 0);
-    printGaris(360, 80, 680, 400, 255, 255, 255, 0);
-    printGaris(640, 360, 920, 80, 255, 255, 255, 0);
-    printGaris(920, 80, 1240, 400, 255, 255, 255, 0);
+    printGaris(40, 400, 360, 80, 0, 102, 204, 0);
+    printGaris(360, 80, 680, 400, 0, 102, 204, 0);
+    printGaris(640, 360, 920, 80, 0, 102, 204, 0);
+    printGaris(920, 80, 1240, 400, 0, 102, 204, 0);
 
     //Jalan
-    printGaris(680,400,750,700,150,155,155,0);
-    printGaris(720,400,1000,700,150,155,155,0);
+    printGaris(530,400,810,700,153,76,0,0);
+    printGaris(670,400,950,700,153,76,0,0);
 
     //Matahari
     printMatahari(650, 175, 80, 15);
@@ -1570,12 +1598,26 @@ int main(){
 	printGaris(220, 700, 270, 450, 127, 247, 29, 0);
 	printGaris(270, 700, 320, 450, 127, 247, 29, 0);
 	printGaris(320, 700, 370, 450, 127, 247, 29, 0);
-	printSawahR(960, 450, 5, 50);
+
+    printSawahR(1020, 450, 5, 50);
+	printGaris(1020, 700, 1070, 450, 127, 247, 29, 0);
+	printGaris(1070, 700, 1120, 450, 127, 247, 29, 0);
+	printGaris(1120, 700, 1170, 450, 127, 247, 29, 0);
+	printGaris(1170, 700, 1220, 450, 127, 247, 29, 0);
+	printGaris(1220, 700, 1270, 450, 127, 247, 29, 0);
+    /*
+    printSawahL(960, 450, 5, 50);
+	//printSawahR(960, 450, 5, 50);
 	printGaris(1010, 700, 960, 450, 127, 247, 29, 0);
 	printGaris(1060, 700, 1010, 450, 127, 247, 29, 0);
 	printGaris(1110, 700, 1060, 450, 127, 247, 29, 0);
 	printGaris(1160, 700, 1110, 450, 127, 247, 29, 0);
+    location = (x+vinfo.xoffset) * (vinfo.bits_per_pixel/8) +
+                        (y+vinfo.yoffset) * finfo.line_length;
+            
 	printGaris(1210, 700, 1160, 450, 127, 247, 29, 0);
+    */
+
 
 	
     munmap(fbp, screensize);
