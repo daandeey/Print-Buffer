@@ -96,7 +96,7 @@ void printPoligon(int xp, int yp, int n, int s, int deg, int r, int g, int b, in
     int x1, y1, x2, y2;
     double d, z;
 
-    z = (double) s / (2 * sin((360/n) * PI / 180));
+    z = (double) s / (2 * sin((180/n) * PI / 180));
 
     d = -90 + deg;
     x1 = xp + z * cos(d * PI / 180);
