@@ -171,6 +171,13 @@ void printTank(int x, int y, int len, int r, int g, int b, int t) {
     printPersegiPanjang(x + len, y0 - floor(0.6 * tinggi_kepala), x + 3 * len, y0 - floor(0.4 * tinggi_kepala), r, g, b, t); //Print Tembakan Tank
 }
 
+void printRudal(int x,int y,int dx, int dy, int r,int g,int b, int t){
+    printSegitiga(x-(5 * dx), y+(15*dy),x, y+(20*dy), x+(5*dx), y+(15*dy), r, g, b, t);
+    printPersegiPanjang(x-(5*dx), y, x+(dx*5), y+(15*dy), r, g, b, t);
+    printSegitiga(x-(10*dx), y, x-(5*dx), y, x-(5*dx), y+(10*dy), r, g, b, t);
+    printSegitiga(x+(10*dx), y, x+(5*dx), y, x+(5*dx), y+(10*dy), r, g, b, t);
+}
+
 int main(){
 
     int x = 0, y = 0;
@@ -219,6 +226,7 @@ int main(){
     // printPoligon(100, 100, 6, 50, 30, 255, 255, 255, 0);
     // printPersegi(100, 100, 500, 255, 255, 255, 0);
     printTank(500, 500, 25, 255, 255, 255, 0);
+    printRudal(500,200, 2, 5, 200, 200, 200, 0);
     //End Draw
 
 
