@@ -89,23 +89,22 @@ void printLingkaran(int xp, int yp, int z, int r, int g, int b, int t)
     }
 }
 
-void printPoligon(int xp, int yp, int n, int s, int deg, int r, int g, int b, int t)
+void printPoligon(int xp, int yp, int n, int p, int q, int deg, int r, int g, int b, int t)
 {
-    //Mencetak segi-N dengan panjang masing-masing sisi sebesar s dan diputar sebanyak deg derajat
+    //Mencetak segi-N dengan titik pusat <xp, yp>, panjang p dan lebar q
+
     int x, y;
     int x1, y1, x2, y2;
-    double d, z;
-
-    z = (double) s / (2 * sin((180/n) * PI / 180));
+    double d;
 
     d = -90 + deg;
-    x1 = xp + z * cos(d * PI / 180);
-    y1 = yp + z * sin(d * PI / 180);
+    x1 = xp + q * cos(d * PI / 180);
+    y1 = yp + p * sin(d * PI / 180);
 
     for (d = (360/n) - 90 + deg; d <= 270 + deg; d += 360/n)
     {
-        x2 = xp + z * cos(d * PI / 180);
-        y2 = yp + z * sin(d * PI / 180);
+        x2 = xp + q * cos(d * PI / 180);
+        y2 = yp + p * sin(d * PI / 180);
 
         printGaris(x1, y1, x2, y2, r, g, b, t);
 
