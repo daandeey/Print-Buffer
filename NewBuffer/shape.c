@@ -163,7 +163,27 @@ void printSegitiga(int x1, int y1, int x2, int y2, int x3, int y3, int r, int g,
 
 }
 
-/*
+void printTank(int x, int y, int panjang, int r, int g, int b, int t) {
+    int panjang_segi_6 = panjang;
+    int panjang_kepala_tank = panjang;
+    int tinggi_kepala_tank = panjang / 2;
+    int panjang_laras_tank = panjang;
+    int tinggi_laras_tank = tinggi_kepala_tank / 5;
+    int y0_kepala = y - floor(sqrt(3) / 2 * panjang);
+
+    printPoligon(x, y, 6, panjang_segi_6, 30, r, g, b, t);
+    printPersegiPanjang(x - panjang / 2, y0_kepala - tinggi_kepala_tank, x + panjang / 2, y0_kepala, r, g, b, t);
+    printPersegiPanjang(x + panjang / 2, y0_kepala - floor(3 * tinggi_kepala_tank / 5), x + panjang / 2 + panjang_laras_tank, y0_kepala - floor(2 * tinggi_kepala_tank / 5), r, g, b, t);
+
+    
+    
+    // printPersegiPanjang(75, 30, 125, 55, 255, 255, 255, 0);
+    // printPersegiPanjang(125, 40, 175, 45, 255, 255, 255, 0);
+    // printPoligon(100, 100, 6, 50, 30, 255, 255, 255, 0);
+
+}
+
+
 int main(){
 
     int x = 0, y = 0;
@@ -206,7 +226,16 @@ int main(){
 
     //Begin Draw
 
-    printSegitiga(100, 100, 150, 175, 250, 400, 255, 255, 255, 0);
+    // printSegitiga(100, 100, 150, 175, 250, 400, 255, 255, 255, 0);
+    // printPersegiPanjang(75, 30, 125, 55, 255, 255, 255, 0);
+    // printPersegiPanjang(125, 40, 175, 45, 255, 255, 255, 0);
+    // printPoligon(100, 100, 6, 50, 30, 255, 255, 255, 0);
+    // printPersegi(100, 100, 500, 255, 255, 255, 0);
+    printTank(500, 500, 50, 255, 255, 255, 0);
+    // printTank(500, 500, 25, 255, 255, 255, 0);
+    // printTank(500, 500, 100, 255, 255, 255, 0);
+    // printTank(500, 500, 200, 255, 255, 255, 0);
+
 
     //End Draw
 
@@ -215,4 +244,4 @@ int main(){
     munmap(fbp, screensize);
     close(fbfd);
     return 0;
-} */
+}
