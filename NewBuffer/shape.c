@@ -178,6 +178,24 @@ void printRudal(int x,int y,int dx, int dy, int r,int g,int b, int t){
     printSegitiga(x+(10*dx), y, x+(5*dx), y, x+(5*dx), y+(10*dy), r, g, b, t);
 }
 
+void printBangunan(int x, int y, float k,  int r, int g, int b, int t) {
+    printPersegiPanjang((floor(86*k)+x), (floor(206*k)+y), (floor(484*k)+x), (floor(283*k)+y), r, g, b, t);
+    printPersegiPanjang((floor(230*k)+x), (floor(206*k)+y), (floor(332*k)+x), (floor(283*k)+y), r, g, b, t);
+    printPersegiPanjang((floor(255*k)+x), (floor(224*k)+y), (floor(306*k)+x), (floor(283*k)+y), r, g, b, t);
+    printPersegiPanjang((floor(130*k)+x), (floor(228*k)+y), (floor(175*k)+x), (floor(254*k)+y), r, g, b, t);
+    printPersegiPanjang((floor(383*k)+x), (floor(224*k)+y), (floor(429*k)+x), (floor(249*k)+y), r, g, b, t);
+    printPersegiPanjang((floor(205*k)+x), (floor(130*k)+y), (floor(349*k)+x), (floor(206*k)+y), r, g, b, t);
+    printPersegiPanjang((floor(108*k)+x), (floor(164*k)+y), (floor(175*k)+x), (floor(206*k)+y), r, g, b, t);
+    printPersegiPanjang((floor(383*k)+x), (floor(165*k)+y), (floor(451*k)+x), (floor(206*k)+y), r, g, b, t);
+    printPersegiPanjang((floor(269*k)+x), (floor(150*k)+y), (floor(290*k)+x), (floor(160*k)+y), r, g, b, t);
+    printPersegiPanjang((floor(204*k)+x), (floor(160*k)+y), (floor(349*k)+x), (floor(169*k)+y), r, g, b, t);
+    printSegitiga((floor(214*k)+x), (floor(206*k)+y), (floor(279*k)+x), (floor(174*k)+y), (floor(345*k)+x),(floor(206*k)+y), r, g, b, t);
+    printSegitiga((floor(108*k)+x), (floor(164*k)+y), (floor(143*k)+x), (floor(119*k)+y), (floor(175*k)+x),(floor(164*k)+y), r, g, b, t);
+    printSegitiga((floor(383*k)+x), (floor(165*k)+y), (floor(417*k)+x), (floor(119*k)+y), (floor(451*k)+x),(floor(165*k)+y), r, g, b, t);
+    printSegitiga((floor(205*k)+x), (floor(130*k)+y), (floor(277*k)+x), (floor(16*k)+y), (floor(349*k)+x),(floor(130*k)+y), r, g, b, t);
+}
+
+
 int main(){
 
     int x = 0, y = 0;
@@ -226,7 +244,8 @@ int main(){
     // printPoligon(100, 100, 6, 50, 30, 255, 255, 255, 0);
     // printPersegi(100, 100, 500, 255, 255, 255, 0);
     printTank(500, 500, 25, 255, 255, 255, 0);
-    printRudal(500,200, 2, 5, 200, 200, 200, 0);
+    printRudal(400,200, 2, 5, 200, 200, 200, 0);
+    printBangunan(625, 285, 0.875, 255, 141, 53, 0);
     //End Draw
 
 
