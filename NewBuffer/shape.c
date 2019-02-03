@@ -89,6 +89,29 @@ void printLingkaran(int xp, int yp, int z, int r, int g, int b, int t)
     }
 }
 
+void printSetengahAtasLingkaran(int xp, int yp, int z, int r, int g, int b, int t)
+{
+    //Mencetak setengah atas lingkaran dengan titik pusat <xp, yp> dan jari-jari Z
+    int x, x1, x2;
+    int y;
+
+    for (x = xp - z; x <= xp + z; x++)
+    {
+        y = yp - sqrt(pow(z, 2) - pow(x - xp, 2));
+
+        fillPixel(x, y, r, g, b, t);
+    }
+
+    for (y = yp - z; y <= yp; y++)
+    {
+        x1 = xp + sqrt(pow(z, 2) - pow(y - yp, 2));
+        x2 = xp - sqrt(pow(z, 2) - pow(y - yp, 2));
+
+        fillPixel(x1, y, r, g, b, t);
+        fillPixel(x2, y, r, g, b, t);
+    }
+}
+
 void printPoligon(int xp, int yp, int n, int p, int q, int deg, int r, int g, int b, int t)
 {
     //Mencetak segi-N dengan titik pusat <xp, yp>, panjang p dan lebar q
@@ -138,6 +161,29 @@ void printElips(int xp, int yp, int p, int q, int r, int g, int b, int t)
     }
 }
 
+void printSetengahBawahElips(int xp, int yp, int p, int q, int r, int g, int b, int t)
+{
+    //Mencetak setengah bawah elips dengan titik pusat <xp, yp> dengan jari-jari <p, q>
+    int x, x1, x2;
+    int y;
+
+    for (x = xp - p; x <= xp + p; x++)
+    {
+        y = yp + sqrt( (pow(p, 2) - pow(x - xp, 2)) * pow((double) q/p, 2));
+
+        fillPixel(x, y, r, g, b, t);
+    }
+
+    for (y = yp; y <= yp + q; y++)
+    {
+        x1 = xp + sqrt((pow(q, 2) - pow(y - yp, 2)) * pow((double) p/q, 2));
+        x2 = xp - sqrt((pow(q, 2) - pow(y - yp, 2)) * pow((double) p/q, 2));
+
+        fillPixel(x1, y, r, g, b, t);
+        fillPixel(x2, y, r, g, b, t);
+    }
+}
+
 void printPersegiPanjang(int x1, int y1, int x2, int y2, int r, int g, int b, int t)
 {
     //Mencetak persegi panjang dengan titik awal <x1, y1> ke titik akhir <x2, y2>
@@ -171,6 +217,13 @@ void printTank(int x, int y, int len, int r, int g, int b, int t) {
     printPersegiPanjang(x + len, y0 - floor(0.6 * tinggi_kepala), x + 3 * len, y0 - floor(0.4 * tinggi_kepala), r, g, b, t); //Print Tembakan Tank
 }
 
+void printBullet(int x, int y, int z, int n, int r, int g, int b, int t) {
+    for (int i = 0; i < n; i++) {
+        printLingkaran(x, y, z, r, g, b, t);
+        x += 50;
+    }
+}
+
 void printRudal(int x,int y,int dx, int dy, int r,int g,int b, int t){
     printSegitiga(x-(5 * dx), y+(15*dy),x, y+(20*dy), x+(5*dx), y+(15*dy), r, g, b, t);
     printPersegiPanjang(x-(5*dx), y, x+(dx*5), y+(15*dy), r, g, b, t);
@@ -193,6 +246,23 @@ void printBangunan(int x, int y, float k,  int r, int g, int b, int t) {
     printSegitiga((floor(108*k)+x), (floor(164*k)+y), (floor(143*k)+x), (floor(119*k)+y), (floor(175*k)+x),(floor(164*k)+y), r, g, b, t);
     printSegitiga((floor(383*k)+x), (floor(165*k)+y), (floor(417*k)+x), (floor(119*k)+y), (floor(451*k)+x),(floor(165*k)+y), r, g, b, t);
     printSegitiga((floor(205*k)+x), (floor(130*k)+y), (floor(277*k)+x), (floor(16*k)+y), (floor(349*k)+x),(floor(130*k)+y), r, g, b, t);
+}
+
+void printAwan(int xp, int yp, int p, int q, int r, int g, int b, int t)
+{
+    printSetengahBawahElips(xp, yp, p, q, r, g, b, t);
+
+    int z1 = 2 * p / 9;
+    int x1 = xp - p + z1;
+    printSetengahAtasLingkaran(x1, yp, z1, r, g, b, t);
+
+    int z2 = 4 * p / 9;
+    int x2 = x1 + z1 + z2;
+    printSetengahAtasLingkaran(x2, yp, z2, r, g, b, t);
+
+    int z3 = p - z1 - z2;
+    int x3 = x2 + z2 + z3;
+    printSetengahAtasLingkaran(x3, yp, z3, r, g, b, t);
 }
 
 
@@ -228,7 +298,7 @@ int main(){
 
     // Map the device to memory
     fbp = (char *)mmap(0, screensize, PROT_READ | PROT_WRITE, MAP_SHARED, fbfd, 0);
-    if ((int)fbp == -1) {
+    if ((long)fbp == -1) {
         perror("Error: failed to map framebuffer device to memory");
         exit(4);
     }
@@ -243,9 +313,12 @@ int main(){
     // printPersegiPanjang(125, 40, 175, 45, 255, 255, 255, 0);
     // printPoligon(100, 100, 6, 50, 30, 255, 255, 255, 0);
     // printPersegi(100, 100, 500, 255, 255, 255, 0);
-    printTank(500, 500, 25, 255, 255, 255, 0);
-    printRudal(400,200, 2, 5, 200, 200, 200, 0);
+    printTank(400, 500, 25, 255, 255, 255, 0);
+    printBullet(500, 470, 5, 4, 255, 255, 255, 0);
+    printRudal(400, 200, 2, 5, 200, 200, 200, 0);
     printBangunan(625, 285, 0.875, 255, 141, 53, 0);
+    printAwan(750, 200, 50, 25, 255, 255, 255, 0);
+    printAwan(950, 150, 50, 25, 255, 255, 255, 0);
     //End Draw
 
 
