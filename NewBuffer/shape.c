@@ -136,6 +136,66 @@ void printPoligon(int xp, int yp, int n, int p, int q, int deg, int r, int g, in
     }
 }
 
+void geserPoligon(int xp, int yp, int n, int p, int q, int deg, int r, int g, int b, int t, int dx, int dy, int ds)
+{
+    float ddx, ddy, count;
+    ddx = (float) dx / ds;
+    ddy = (float) dy / ds;
+
+    count = 0;
+    while (count <= dx)
+    {
+        printPoligon(xp, yp, n, p, q, deg, r, g, b, t);
+        count += ddx;
+        xp += ddx;
+        yp += ddy;
+        sleep(1);
+        clearBackground();
+    }
+}
+
+void putarPoligon(int xp, int yp, int n, int p, int q, int deg, int r, int g, int b, int t, int dr, int ds)
+{
+    float ddr, count;
+    ddr = (float) dr/ds;
+
+    count = 0;
+    while (count <= dr)
+    {
+        printPoligon(xp, yp, n, p, q, deg, r, g, b, t);
+        count += ddr;
+        deg += ddr;
+        sleep(1);
+        clearBackground();
+    }
+}
+
+void perbesarPoligon(int xp, int yp, int n, int p, int q, int deg, int r, int g, int b, int t, float dz, int ds)
+{
+    float dp, dq, count;
+    float ddp, ddq;
+
+    dp = p * dz;
+    dq = q * dz;
+    ddp = dp / ds;
+    ddq = dq / ds;
+
+    count = 0;
+    
+    while (count <= dp)
+    {
+        printPoligon(xp, yp, n, p, q, deg, r, g, b, t);
+        count += ddp;
+        p += ddp;
+        q += ddq;
+        sleep(1);
+        clearBackground();
+    }
+
+}
+
+
+
 void printElips(int xp, int yp, int p, int q, int r, int g, int b, int t)
 {
     //Mencetak elips dengan titik pusat <xp, yp> dengan jari-jari <p, q>
@@ -354,6 +414,7 @@ int main(){
     // printPersegiPanjang(125, 40, 175, 45, 255, 255, 255, 0);
     // printPoligon(100, 100, 6, 50, 30, 255, 255, 255, 0);
     // printPersegi(100, 100, 500, 255, 255, 255, 0);
+    /*
     printTank(400, 500, 25, 0, 100, 0, 0);
     printBullet(500, 470, 5, 4, 143, 188, 143, 0);
     printBangunan(625, 285, 0.875, 255, 141, 53, 0);
@@ -361,6 +422,10 @@ int main(){
     printAwan(950, 150, 50, 25, 255, 255, 255, 0);
     printPesawat(475, 160, 0.75, 0, 0, 139, 0);
     printRudal(400, 225, 1, 3, 95, 158, 160, 0);
+    */
+
+   perbesarPoligon(500, 500, 9, 50, 50, 0, 255, 255, 255, 0, 2, 4);
+   
     //End Draw
 
     munmap(fbp, screensize);
