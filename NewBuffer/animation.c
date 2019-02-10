@@ -47,7 +47,6 @@ void putarPoligon(int xp, int yp, int n, int p, int q, int deg, int r, int g, in
             printPoligon(xp, yp, n, p, q, c_deg, 0, 0, 0, t);
         }
     }
-
 }
 
 void perbesarPoligon(int xp, int yp, int n, int p, int q, int deg, int r, int g, int b, int t, float dz, int ds)
@@ -152,9 +151,50 @@ void perbesarSetengahAtasLingkaran(int xp, int yp, int z, int r, int g, int b, i
     }
 }
 
+void perbesarBangunan(int xp, int yp, float k,  int r, int g, int b, int t, float dz, int ds)
+{
+    //Bangunan dibesarkan sebesar dz selama ds detik
+    float dk;
+
+    ds *= 60;
+
+    for(int i = 0; i<= ds; i++)
+    {
+        dk = (double) k * (1 + i * (dz - 1) / ds);
+
+        printBangunan(xp, yp, dk, r, g, b, t);
+        usleep(1000000 / 60);
+        if (i != ds)
+        {
+            printBangunan(xp, yp, dk, 0, 0, 0, t);
+        }
+    }
+
+}
+
+void putarMatahari(int xp, int yp, int n, int p, int q, int deg, int r, int g, int b, int t, int dr, int ds)
+{
+    //Matahari diputar sebesar dr derajat selama ds detik
+    int c_deg;
+
+    ds *= 60;
+
+    for (int i = 0; i <= ds; i++)
+    {
+        c_deg = nearbyint(deg + (double) (i * dr / ds));
+
+        printMatahari(xp, yp, n, p, q, c_deg, r, g, b, t);
+        usleep(1000000 / 60);
+        if (i != ds)
+        {
+            printMatahari(xp, yp, n, p, q, c_deg, 0, 0, 0, t);
+        }
+    }
+}
+
 void geserAwan(int xp, int yp, int p, int q, int r, int g, int b, int t, int dx, int dy, int ds)
 {
-    //Poligon digeser sebesar <dx, dy> selama ds detik
+    //Awan digeser sebesar <dx, dy> selama ds detik
     int x, y;
     ds *= 60;
 
@@ -195,7 +235,7 @@ void geserTank(int x0, int y0, int len, int r, int g, int b, int t, int dx, int 
 
 void geserBullet(int xp, int yp, int z, int n, int r, int g, int b, int t, int dx, int dy, int ds)
 {
-    //Poligon digeser sebesar <dx, dy> selama ds detik
+    //Bullet digeser sebesar <dx, dy> selama ds detik
     int x, y;
     ds *= 60;
 
@@ -210,6 +250,48 @@ void geserBullet(int xp, int yp, int z, int n, int r, int g, int b, int t, int d
         if (i != ds)
         {
             printBullet(x, y, z, n, 0, 0, 0, t);
+        }
+    }
+}
+
+void geserPesawat(int xp, int yp, float scale, int r, int g, int b, int t, int dx, int dy, int ds)
+{
+    //Pesawat digeser sebesar <dx, dy> selama ds detik
+    int x, y;
+    ds *= 60;
+
+    for (int i = 0; i <= ds; i++)
+    {
+        x = nearbyint(xp + (double) (i * dx / ds));
+        y = nearbyint(yp + (double) (i * dy / ds));
+
+        printPesawat(x, y, scale, r, g, b, t);
+        usleep(1000000 / 60);
+
+        if (i != ds)
+        {
+            printPesawat(x, y, scale, 0, 0, 0, t);
+        }
+    }
+}
+
+void geserRudal(int xp, int yp, int ddx, int ddy, int r, int g, int b, int t, int dx, int dy, int ds)
+{
+    //Rudal digeser sebesar <dx, dy> selama ds detik
+    int x, y;
+    ds *= 60;
+
+    for (int i = 0; i <= ds; i++)
+    {
+        x = nearbyint(xp + (double) (i * dx / ds));
+        y = nearbyint(yp + (double) (i * dy / ds));
+
+        printRudal(x, y, ddx, ddy, r, g, b, t);
+        usleep(1000000 / 60);
+
+        if (i != ds)
+        {
+            printRudal(x, y, ddx, ddy, 0, 0, 0, t);
         }
     }
 }

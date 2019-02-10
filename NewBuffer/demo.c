@@ -49,13 +49,14 @@ int main(){
 
     clearBackground();
 
-    //Begin Draw
+    // Begin Draw
 
     // printSegitiga(100, 100, 150, 175, 250, 400, 255, 255, 255, 0);
     // printPersegiPanjang(75, 30, 125, 55, 255, 255, 255, 0);
     // printPersegiPanjang(125, 40, 175, 45, 255, 255, 255, 0);
     // printPoligon(100, 100, 6, 50, 30, 255, 255, 255, 0);
     // printPersegi(100, 100, 500, 255, 255, 255, 0);
+
     /*
     printTank(400, 500, 25, 0, 100, 0, 0);
     printBullet(500, 470, 5, 4, 143, 188, 143, 0);
@@ -68,15 +69,16 @@ int main(){
 
     // geserPoligon(300, 300, 5, 100, 100, 0, 255, 255, 255, 0, 200, 100, 1);
 
-    printBangunan(625, 285, 0.875, 255, 141, 53, 0);
-    geserAwan(750, 200, 50, 25, 255, 255, 255, 0, 25, 0, 1);
-    geserAwan(950, 150, 50, 25, 255, 255, 255, 0, 25, 0, 1);
+    perbesarBangunan(625, 285, 0.500, 255, 141, 53, 0, 1.75, 1);
+    putarMatahari(750, 100, 10, 50, 50, 0, 255, 255, 0, 0, 100, 1);
+    geserAwan(750, 225, 50, 25, 255, 255, 255, 0, 25, 0, 1);
+    geserAwan(950, 175, 50, 25, 255, 255, 255, 0, 25, 0, 1);
     geserTank(300, 500, 25, 0, 100, 0, 0, 100, 0, 1);
     geserBullet(500, 470, 5, 3, 143, 188, 143, 0, 50, 0, 1);
-    printPesawat(475, 160, 0.75, 0, 0, 139, 0);
-    printRudal(400, 225, 1, 3, 95, 158, 160, 0);
+    geserPesawat(400, 160, 0.75, 0, 0, 139, 0, 75, 0, 1);
+    geserRudal(400, 225, 1, 3, 95, 158, 160, 0, 0, 100, 1);
 
-    //End Draw
+    // End Draw
 
     munmap(fbp, screensize);
     close(fbfd);

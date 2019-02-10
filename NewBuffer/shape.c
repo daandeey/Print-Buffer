@@ -266,6 +266,35 @@ void printBangunan(int x, int y, float k,  int r, int g, int b, int t) {
     printSegitiga((floor(205*k)+x), (floor(130*k)+y), (floor(277*k)+x), (floor(16*k)+y), (floor(349*k)+x),(floor(130*k)+y), r, g, b, t);
 }
 
+void printMatahari(int xp, int yp, int n, int p, int q, int deg, int r, int g, int b, int t)
+{
+    //Mencetak segi-N dengan titik pusat <xp, yp>, panjang p dan lebar q
+
+    int x, y;
+    int x1, y1, x2, y2;
+    double d;
+
+    d = -90 + deg;
+    x1 = xp + q * cos(d * PI / 180);
+    y1 = yp + p * sin(d * PI / 180);
+
+    for (d = (360/n) - 90 + deg; d <= 270 + deg; d += 360/n)
+    {
+        x2 = xp + q * cos(d * PI / 180);
+        y2 = yp + p * sin(d * PI / 180);
+
+        printGaris(x1, y1, x2, y2, r, g, b, t);
+
+        int x3 = xp + (q + 10) * cos(d * PI / 180);
+        int y3 = yp + (p + 10) * sin(d * PI / 180);
+
+        printGaris(x2, y2, x3, y3, r, g, b, t);
+
+        x1 = x2;
+        y1 = y2;
+    }
+}
+
 void printAwan(int xp, int yp, int p, int q, int r, int g, int b, int t)
 {
     printSetengahBawahElips(xp, yp, p, q, r, g, b, t);
