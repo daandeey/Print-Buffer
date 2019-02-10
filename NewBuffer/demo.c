@@ -7,6 +7,78 @@
 #include <sys/ioctl.h>
 #include <math.h>
 #include "animation.c"
+typedef struct Element {
+     char name[10], type;
+     float x[12];
+ 
+} Element;
+
+void readFile(FILE *payfile, Element war[100], int *idx, int i){
+ while(EOF!=fscanf(payfile,"%9s %c %f %f %f %f %f %f %f %f %f %f %f %f",
+            war[i].name ,&war[i].type, &war[i].x[1], &war[i].x[2], &war[i].x[3], 
+            &war[i].x[4], &war[i].x[5], &war[i].x[6], &war[i].x[7], &war[i].x[8],
+            &war[i].x[9], &war[i].x[10], &war[i].x[11], &war[i].x[12])) 
+        {
+            i++;
+        }
+    *idx = i;
+}
+
+void runAnimation(Element war[100], int i){
+    for(int j=0; j<i; j++){
+        printf("%s\n", war[j].name);
+        if(strcmp(war[j].name,"Bangunan") == 0){
+            //printf("yes\n");
+            if (strcmp(war[j].type,"S") == 0){
+                perbesarBangunan(war[i].x[1], war[i].x[2], war[i].x[3], war[i].x[4], war[i].x[5], 
+                war[i].x[6], war[i].x[7], war[i].x[8], war[i].x[9]);
+            }
+        } else if(strcmp(war[j].name,"Matahari") == 0){
+            //printf("yes\n");
+            if (strcmp(war[j].type,"R") == 0){
+                putarMatahari(war[i].x[1], war[i].x[2], war[i].x[3], 
+            war[i].x[4], war[i].x[5], war[i].x[6], war[i].x[7], war[i].x[8],
+            war[i].x[9], war[i].x[10], war[i].x[11], war[i].x[12]);
+            }
+        } else if(strcmp(war[j].name,"Awan") == 0){
+            //printf("yes\n");
+            if (strcmp(war[j].type,"T") == 0){
+                geserAwan(war[i].x[1], war[i].x[2], war[i].x[3], 
+            war[i].x[4], war[i].x[5], war[i].x[6], war[i].x[7], war[i].x[8],
+            war[i].x[9], war[i].x[10], war[i].x[11]);
+            }
+        } else if(strcmp(war[j].name,"Tank") == 0){
+            //printf("yes\n");
+            if (strcmp(war[j].type,"T") == 0){
+                geserTank(war[i].x[1], war[i].x[2], war[i].x[3], 
+            war[i].x[4], war[i].x[5], war[i].x[6], war[i].x[7], war[i].x[8],
+            war[i].x[9], war[i].x[10]);
+            }
+        } else if(strcmp(war[j].name,"Bullet") == 0){
+            //printf("yes\n");
+            if (strcmp(war[j].type,"T") == 0){
+                geserBullet(war[i].x[1], war[i].x[2], war[i].x[3], 
+            war[i].x[4], war[i].x[5], war[i].x[6], war[i].x[7], war[i].x[8],
+            war[i].x[9], war[i].x[10], war[i].x[11]);
+            }
+        } else if(strcmp(war[j].name,"Pesawat") == 0){
+            //printf("yes\n");
+            if (strcmp(war[j].type,"T") == 0){
+               geserPesawat(war[i].x[1], war[i].x[2], war[i].x[3], 
+            war[i].x[4], war[i].x[5], war[i].x[6], war[i].x[7], war[i].x[8],
+            war[i].x[9], war[i].x[10]);
+            }
+        } else if(strcmp(war[j].name,"Rudal") == 0){
+            //printf("yes\n");
+            if (strcmp(war[j].type,"T") == 0){
+                geserRudal(war[i].x[1], war[i].x[2], war[i].x[3], 
+            war[i].x[4], war[i].x[5], war[i].x[6], war[i].x[7], war[i].x[8],
+            war[i].x[9], war[i].x[10], war[i].x[11]);
+            }
+        }
+        
+    }
+}
 
 
 int main(){
@@ -77,6 +149,15 @@ int main(){
     geserBullet(500, 470, 5, 3, 143, 188, 143, 0, 50, 0, 1);
     geserPesawat(400, 160, 0.75, 0, 0, 139, 0, 75, 0, 1);
     geserRudal(400, 225, 1, 3, 95, 158, 160, 0, 0, 100, 1);
+
+
+    FILE *payfile;
+    Element war[100];
+    int i = 0, num;
+
+    payfile = fopen("input.txt","r");
+    readFile(payfile, &war[100], &num, i);
+    runAnimation(&war[100], num);
 
     // End Draw
 
