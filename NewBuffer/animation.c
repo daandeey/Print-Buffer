@@ -72,7 +72,7 @@ void perbesarPoligon(int xp, int yp, int n, int p, int q, int deg, int r, int g,
 
 }
 
-void geserLingkaran(xp, yp, z, r, g, b, t, dx, dy, ds)
+void geserLingkaran(int xp, int yp, int z, int r, int g, int b, int t, int dx, int dy, int ds)
 {
     //Lingkaran digeser sebesar <dx, dy> selama ds detik
     int x, y;
@@ -93,7 +93,7 @@ void geserLingkaran(xp, yp, z, r, g, b, t, dx, dy, ds)
     }
 }
 
-void perbesarLingkaran(xp, yp, z, r, g, b, t, dz, ds)
+void perbesarLingkaran(int xp, int yp, int z, int r, int g, int b, int t, int dz, int ds)
 {
     int dr;
 
@@ -112,7 +112,7 @@ void perbesarLingkaran(xp, yp, z, r, g, b, t, dz, ds)
     }
 }
 
-void geserSetengahAtasLingkaran(xp, yp, z, r, g, b, t, dx, dy, ds)
+void geserSetengahAtasLingkaran(int xp,int  yp, int z, int r, int g, int b, int t, int dx, int dy, int ds)
 {
     //Lingkaran digeser sebesar <dx, dy> selama ds detik
     int x, y;
@@ -133,7 +133,7 @@ void geserSetengahAtasLingkaran(xp, yp, z, r, g, b, t, dx, dy, ds)
     }
 }
 
-void perbesarSetengahAtasLingkaran(xp, yp, z, r, g, b, t, dz, ds)
+void perbesarSetengahAtasLingkaran(int xp, int yp, int z, int r, int g, int b, int t, int dz, int ds)
 {
     int dr;
 
@@ -152,3 +152,44 @@ void perbesarSetengahAtasLingkaran(xp, yp, z, r, g, b, t, dz, ds)
     }
 }
 
+void geserBullet(int xp, int yp, int z, int n, int r, int g, int b, int t, int dx, int dy, int ds)
+{
+    //Poligon digeser sebesar <dx, dy> selama ds detik
+    int x, y;
+    ds *= 60;
+
+    for (int i = 0; i <= ds; i++)
+    {
+        x = nearbyint(xp + (double) (i * dx / ds));
+        y = nearbyint(yp + (double) (i * dy / ds));
+
+        printBullet(x, y, z, n, r, g, b, t);
+        usleep(1000000 / 60);
+
+        if (i != ds)
+        {
+            printBullet(x, y, z, n, 0, 0, 0, t);
+        }
+    }
+}
+
+void geserAwan(int xp, int yp, int p, int q, int r, int g, int b, int t, int dx, int dy, int ds)
+{
+    //Poligon digeser sebesar <dx, dy> selama ds detik
+    int x, y;
+    ds *= 60;
+
+    for (int i = 0; i <= ds; i++)
+    {
+        x = nearbyint(xp + (double) (i * dx / ds));
+        y = nearbyint(yp + (double) (i * dy / ds));
+
+        printAwan(x, y, p, q, r, g, b, t);
+        usleep(1000000 / 60);
+
+        if (i != ds)
+        {
+            printAwan(x, y, p, q, 0, 0, 0, t);
+        }
+    }
+}
