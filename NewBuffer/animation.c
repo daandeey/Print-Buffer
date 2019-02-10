@@ -152,27 +152,6 @@ void perbesarSetengahAtasLingkaran(int xp, int yp, int z, int r, int g, int b, i
     }
 }
 
-void geserBullet(int xp, int yp, int z, int n, int r, int g, int b, int t, int dx, int dy, int ds)
-{
-    //Poligon digeser sebesar <dx, dy> selama ds detik
-    int x, y;
-    ds *= 60;
-
-    for (int i = 0; i <= ds; i++)
-    {
-        x = nearbyint(xp + (double) (i * dx / ds));
-        y = nearbyint(yp + (double) (i * dy / ds));
-
-        printBullet(x, y, z, n, r, g, b, t);
-        usleep(1000000 / 60);
-
-        if (i != ds)
-        {
-            printBullet(x, y, z, n, 0, 0, 0, t);
-        }
-    }
-}
-
 void geserAwan(int xp, int yp, int p, int q, int r, int g, int b, int t, int dx, int dy, int ds)
 {
     //Poligon digeser sebesar <dx, dy> selama ds detik
@@ -190,6 +169,47 @@ void geserAwan(int xp, int yp, int p, int q, int r, int g, int b, int t, int dx,
         if (i != ds)
         {
             printAwan(x, y, p, q, 0, 0, 0, t);
+        }
+    }
+}
+
+void geserTank(int x0, int y0, int len, int r, int g, int b, int t, int dx, int dy, int ds)
+{
+    int x,y;
+    ds *= 60;
+    
+    for(int i = 0; i <= ds; i++)
+    {
+        x = nearbyint(x0 + (double) (i * dx / ds));
+        y = nearbyint(y0 + (double) (i * dy / ds));
+
+        printTank(x, y, len, r, g, b, t);
+        usleep(1000000 / 60);
+
+        if (i != ds)
+        {
+            printTank(x, y, len, 0, 0, 0, t);
+        }
+    }
+}
+
+void geserBullet(int xp, int yp, int z, int n, int r, int g, int b, int t, int dx, int dy, int ds)
+{
+    //Poligon digeser sebesar <dx, dy> selama ds detik
+    int x, y;
+    ds *= 60;
+
+    for (int i = 0; i <= ds; i++)
+    {
+        x = nearbyint(xp + (double) (i * dx / ds));
+        y = nearbyint(yp + (double) (i * dy / ds));
+
+        printBullet(x, y, z, n, r, g, b, t);
+        usleep(1000000 / 60);
+
+        if (i != ds)
+        {
+            printBullet(x, y, z, n, 0, 0, 0, t);
         }
     }
 }
