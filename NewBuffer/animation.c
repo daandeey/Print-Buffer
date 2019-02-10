@@ -152,3 +152,24 @@ void perbesarSetengahAtasLingkaran(xp, yp, z, r, g, b, t, dz, ds)
     }
 }
 
+void geserTank(int x0, int y0, int len, int r, int g, int b, int t, int dx, int dy, int ds)
+{
+    int x,y;
+    ds *= 60;
+    
+    for(int i = 0; i <= ds; i++)
+    {
+        x = nearbyint(x0 + (double) (i * dx / ds));
+        y = nearbyint(y0 + (double) (i * dy / ds));
+
+        printTank(x, y, len, r, g, b, t);
+
+        usleep(1000000 / 60);
+
+        if (i != ds)
+        {
+            printTank(x, y, len, 0, 0, 0, t);
+        }
+    }
+}
+
