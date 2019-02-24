@@ -334,3 +334,13 @@ void printRudal(int x,int y,int dx, int dy, int r,int g,int b, int t){
     printSegitiga(x-(10*dx), y, x-(5*dx), y, x-(5*dx), y+(10*dy), r, g, b, t);
     printSegitiga(x+(10*dx), y, x+(5*dx), y, x+(5*dx), y+(10*dy), r, g, b, t);
 }
+
+void fillBulanSabit(int xp, int yp, int z, int r, int g, int b, int t)
+{
+    printLingkaran(xp, yp, z, r, g, b, t);
+    printLingkaran(xp - 2*z/3, yp, z, r, g, b, t);
+    
+    floodFillPixel(xp + 2*z/3, yp, 0, 0, 0, 0, r, g, b, t);
+    printLingkaran(xp, yp, z, 0, 0, 0, 0);
+    printLingkaran(xp - 2*z/3, yp, z, 0, 0, 0, 0);
+}
