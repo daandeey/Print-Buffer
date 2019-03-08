@@ -15,11 +15,9 @@ http://cep.xor.aps.anl.gov/software/qt4-x11-4.2.2/qtopiacore-testingframebuffer.
 #include <sys/mman.h>
 #include <sys/ioctl.h>
 #include <math.h>
-#include "alphabet.h"
+#include "Alphabet/alphabet.h"
 
 #define PI 3.14159265
-#define THICK 6
-#define SIZE 60
 #define for_each_item(item, list) \
     for(T * item = list->head; item != NULL; item = item->next)
 
@@ -263,14 +261,14 @@ int main(){
     printNama("ivan", 40,250,150,100,40,20);
     printNama("yogi", 40,320,150,200,40,20);
     printNama("judhis", 40,390,150,120,40,20);
-    // Positif
-    printGaris(40, 40, 200, 200, 255, 255, 255, 0);
-    printGaris(40, 40, 40, 200, 255, 255, 255, 0);
-    printGaris(40, 200, 200, 200, 255, 255, 255, 0);
-    // Negatif
-    printGaris(40, 400, 200, 240, 255, 255, 255, 0);
-    printGaris(40, 240, 40, 400, 255, 255, 255, 0);
-    printGaris(40, 240, 200, 240, 255, 255, 255, 0);
+    // // Positif
+    // printGaris(40, 40, 200, 200, 255, 255, 255, 0);
+    // printGaris(40, 40, 40, 200, 255, 255, 255, 0);
+    // printGaris(40, 200, 200, 200, 255, 255, 255, 0);
+    // // Negatif
+    // printGaris(40, 400, 200, 240, 255, 255, 255, 0);
+    // printGaris(40, 240, 40, 400, 255, 255, 255, 0);
+    // printGaris(40, 240, 200, 240, 255, 255, 255, 0);
     
     // Gunung
     // printGaris(40, 400, 360, 80, 0, 102, 204, 0);

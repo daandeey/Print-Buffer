@@ -1,6 +1,5 @@
 #include "alphabet.h"
 
-#define PI 3.14159265
 #define THICK 6
 #define SIZE 60
 #define for_each_item(item, list) \
