@@ -46,7 +46,7 @@ void CohenSutherlandClip(int xmin, int ymin, int xmax, int ymax)
     {
         temp = ymin;
         ymin = ymax;
-        ymax = temp
+        ymax = temp;
     }
 
     printf("Jumlah garis : ");
@@ -60,7 +60,7 @@ void CohenSutherlandClip(int xmin, int ymin, int xmax, int ymax)
         a1 = maskArea(x1, y1, xmin, ymin, xmax, ymax);
         a2 = maskArea(x2, y2, xmin, ymin, xmax, ymax);
 
-        if !(a1 & a2) //Tidak berada di region yang sama
+        if (!(a1 & a2)) //Tidak berada di region yang sama
         {
             if ((a1 == 0) && (a2 == 0))
             {
