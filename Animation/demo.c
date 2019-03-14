@@ -17,24 +17,31 @@ typedef struct Element {
 } Element;
 
 // Read file named namaFile and copy the parameters in file to "war"
-void scanFile(char *namaFile , Element war[100], int idx, int i){
+void scanFile(const char namaFile[25] , Element war[100], int *idx){
     FILE *payfile;
+    int i = 0;
+
     payfile = fopen(namaFile,"r");
-    while(EOF!=fscanf(payfile,"%9s %c %f %f %f %f %f %f %f %f %f %f %f %f",
-            war[i].name ,&war[i].type, &war[i].x[1], &war[i].x[2], &war[i].x[3], 
-            &war[i].x[4], &war[i].x[5], &war[i].x[6], &war[i].x[7], &war[i].x[8],
-            &war[i].x[9], &war[i].x[10], &war[i].x[11], &war[i].x[12])) 
-    {
-        i++;
-    }
-    idx = i;
+    if(!payfile){
+    	printf("Tidak ada file\n");
+    } else {
+	    while(EOF!=fscanf(payfile,"%9s %c %f %f %f %f %f %f %f %f %f %f %f %f",
+	            war[i].name ,&war[i].type, &war[i].x[1], &war[i].x[2], &war[i].x[3], 
+	            &war[i].x[4], &war[i].x[5], &war[i].x[6], &war[i].x[7], &war[i].x[8],
+	            &war[i].x[9], &war[i].x[10], &war[i].x[11], &war[i].x[12])) 
+	    {
+	        i++;
+	    }
+	    *idx = i;
+	    fclose(payfile);
+	}
 }
 
 //Run all animation in array "war" with size of command = j
 void runAnimation(Element war[100], int j){
+
     //Iteration until do all the command in file 
     for(int i=0; i<j; i++){
-
         //If command i is Bangunan
         //Do Dilation if type = S
         if(strcmp(war[i].name,"Bangunan") == 0){
@@ -149,17 +156,16 @@ void endDraw(){
 int main(){
     //Local Variable
     Element war[100];
-    int j, num;
+    int num;
 
     //Variable Initiation
-    j = 0;
     num = 0;
 
     //Start a draw
     startDraw();
 
     //Do a scan file
-    scanFile("input.txt",war,num,j);
+    scanFile("input.txt",war,&num);
 
     //Clear Background
     clearBackground();
