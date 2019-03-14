@@ -115,8 +115,6 @@ void printSetengahAtasLingkaran(int xp, int yp, int z, int r, int g, int b, int 
 void printPoligon(int xp, int yp, int n, int p, int q, int deg, int r, int g, int b, int t)
 {
     //Mencetak segi-N dengan titik pusat <xp, yp>, panjang p dan lebar q
-
-    int x, y;
     int x1, y1, x2, y2;
     double d;
 
@@ -187,7 +185,7 @@ void printSetengahBawahElips(int xp, int yp, int p, int q, int r, int g, int b, 
 void printHalfElips(int xp, int yp, int p, int q, int r, int g, int b, int t)
 {
     //Mencetak setengah elips dengan titik pusat <xp, yp> dengan jari-jari <p, q>
-    int x, x1, x2;
+    int x, x1;
     int y, y1, y2;
 
     for (x = xp - p; x <= xp + p; x++)
@@ -269,8 +267,6 @@ void printBangunan(int x, int y, float k,  int r, int g, int b, int t) {
 void printMatahari(int xp, int yp, int n, int p, int q, int deg, int r, int g, int b, int t)
 {
     //Mencetak segi-N dengan titik pusat <xp, yp>, panjang p dan lebar q
-
-    int x, y;
     int x1, y1, x2, y2;
     double d;
 
