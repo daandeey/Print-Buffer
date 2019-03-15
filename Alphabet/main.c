@@ -7,14 +7,7 @@
 #include <sys/ioctl.h>
 #include <math.h>
 
-#include "alphabet.h"
-
-struct fb_var_screeninfo vinfo;
-struct fb_fix_screeninfo finfo;
-long int screensize = 0;
-char *fbp = 0;
-long int location = 0;
-int fbfd = 0;
+#include "alphabet.c"
 
 //Struct new element named Element
 typedef struct Element {
@@ -27,37 +20,11 @@ typedef struct Element {
      int t;
 } Element;
 
-void initFbp(){
-    fbp = (char *)mmap(0, screensize, PROT_READ | PROT_WRITE, MAP_SHARED, fbfd, 0);
-    if ((int)fbp == -1) {
-        perror("Error: failed to map framebuffer device to memory");
-        exit(4);
-    }
-}
-
-void fillPixel(int x, int y, int r, int g, int b, int t){
-    location = (x+vinfo.xoffset) * (vinfo.bits_per_pixel/8) +
-                        (y+vinfo.yoffset) * finfo.line_length;
-            
-            *(fbp + location) = b;
-            *(fbp + location + 1) = g;
-            *(fbp + location + 2) = r;
-            *(fbp + location + 3) = t;
-}
-
-void clearBackground() {
-    for(int a=0; a<700;a++){
-        for(int b=0; b<1300;b++){
-            fillPixel(b, a, 0, 0, 0, 0);
-        }
-    }
-}
-
-void scanFile(const char namaFile[25] , Element elem[100], int *idx){
+void scanFile(const char filename[25] , Element elem[100], int *idx){
     FILE *payfile;
     int i = 0;
 
-    payfile = fopen(namaFile,"r");
+    payfile = fopen(filename,"r");
     if(!payfile){
     	printf("Tidak ada file\n");
     } else {

@@ -6,7 +6,6 @@
 #include <sys/mman.h>
 #include <sys/ioctl.h>
 
-
 #define for_each_item(item, list) \
     for(T * item = list->head; item != NULL; item = item->next)
 #define THICK 6
@@ -44,19 +43,6 @@ void floodFillPixel(int x, int y, int r0, int g0, int b0, int t0, int r1, int g1
     if (((*(fbp + location) == b0) && (*(fbp + location + 1) == g0) && (*(fbp + location + 2) == r0) && (*(fbp + location + 3) == t0)))
     {
         fillPixel(x, y, r1, g1, b1, t1);
-
-        /*
-        floodFillPixel(x-1, y-1, r0, g0, b0, t0, r1, g1, b1, t1);
-        floodFillPixel(x, y-1, r0, g0, b0, t0, r1, g1, b1, t1);
-        floodFillPixel(x+1, y-1, r0, g0, b0, t0, r1, g1, b1, t1);
-
-        floodFillPixel(x-1, y, r0, g0, b0, t0, r1, g1, b1, t1);
-        floodFillPixel(x+1, y, r0, g0, b0, t0, r1, g1, b1, t1);
-
-        floodFillPixel(x-1, y+1, r0, g0, b0, t0, r1, g1, b1, t1);
-        floodFillPixel(x, y+1, r0, g0, b0, t0, r1, g1, b1, t1);
-        floodFillPixel(x+1, y+1, r0, g0, b0, t0, r1, g1, b1, t1);
-        */
 
         floodFillPixel(x, y-1, r0, g0, b0, t0, r1, g1, b1, t1);
         floodFillPixel(x-1, y, r0, g0, b0, t0, r1, g1, b1, t1);

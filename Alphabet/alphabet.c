@@ -1,10 +1,4 @@
-#include "alphabet.h"
-
-#define THICK 6
-#define SIZE 60
-#define for_each_item(item, list) \
-    for(T * item = list->head; item != NULL; item = item->next)
-
+#include "../Util/utility.c"
 
 void printA(int x_in, int y_in, int r, int g, int b, int t){
     int x, y;
