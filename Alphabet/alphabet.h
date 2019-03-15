@@ -1,6 +1,15 @@
 #ifndef ALPHABET_H
 #define ALPHABET_H
 
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <linux/fb.h>
+#include <sys/mman.h>
+#include <sys/ioctl.h>
+#include <math.h>
+
 void printA(int x_in, int y_in, int r, int g, int b, int t);
 void printB(int x_in, int y_in, int r, int g, int b, int t);
 void printC(int x_in, int y_in, int r, int g, int b, int t);
