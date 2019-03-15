@@ -57,7 +57,25 @@ void clearBackground() {
 }
 
 
+// Read file named namaFile and copy the parameters in file to "war"
+// void scanFile(const char namaFile[25] , Element view[100], int *idx){
+//     FILE *payfile;
+//     int i = 0;
 
+//     payfile = fopen(namaFile,"r");
+//     if(!payfile){
+//     	printf("Tidak ada file\n");
+//     } else {
+// 	    while(EOF!=fscanf(payfile,"%c %f %f %f %f %f %f %f %f",
+// 	            view[i].name , &view[i].x[1], &view[i].x[2], &view[i].x[3], 
+// 	            &view[i].x[4], &view[i].x[5], &view[i].x[6], &view[i].x[7], &view[i].x[8])) 
+// 	    {
+// 	        i++;
+// 	    }
+// 	    *idx = i;
+// 	    fclose(payfile);
+// 	}
+// }
 
 int main(){
 
